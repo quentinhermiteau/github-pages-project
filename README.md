@@ -5,7 +5,7 @@ Contexte:
 Vous êtes un lead dev qui met en place un repository pour son équipe, toutes les bonnes pratiques doivent être mise en place pour garantir une bonne gestion de projet.
 
 Ce qu'il faut faire:
-- [ ] Forker le projet disponible à [cette adresse](https://github.com/quentinhermiteau/github-pages-project)
+- [ ] Sujet à [cette adresse](https://github.com/quentinhermiteau/github-pages-project)
 - [ ] Mettre en place toutes les bonnes pratiques autour du git flow
 - [ ] Rédiger un Readme (nom du projet, commande pour setup le projet, etc)
 - [ ] Mettre en place des templates pour les issues et les pull requests
