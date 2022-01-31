@@ -1,30 +1,35 @@
-# GitHub pages project
+# Nfassory DIABY WORDPRESS
 
-Contexte:
+Voici mon site web perso pour y accéder veuillez tapez les commandes suivantes : 
 
-Vous êtes un lead dev qui met en place un repository pour son équipe, toutes les bonnes pratiques doivent être mise en place pour garantir une bonne gestion de projet.
+Tout d'abord téléchargeons la dernière version de WordPress :
 
-Ce qu'il faut faire:
-- [ ] Sujet à [cette adresse](https://github.com/quentinhermiteau/github-pages-project)
-- [ ] Mettre en place toutes les bonnes pratiques autour du git flow
-- [ ] Rédiger un Readme (nom du projet, commande pour setup le projet, etc)
-- [ ] Mettre en place des templates pour les issues et les pull requests
-- [ ] Mettre en place une gestion de projet (+ labels)
-- [ ] Mettre en place une github pages avec un thème
-- [ ] Le projet devra contenir au moins 1 branche feature et 1 branche fix
-- [ ] Les commits doivent être correctement rédigés (ET SIGNÉS)
-- [ ] Tout travail doit être répertorié dans les issues et suivi avec la gestion de projet de GitHub
 
-Règles pour le projet:
-- Projet en individuel
-- Noté sur 7
+`wget https://fr.wordpress.org/wordpress-latest-fr_FR.zip
+`
 
-Notation:
-| à faire | point |
-| --- | --- |
-| Gitflow | 1 |
-| Readme | 1,5 |
-| templates | 1,5 |
-| Gestion de projet | 1 |
-| commits + signés | 1 |
-| Github pages | 1 |
+Ensuite nous allons extraire le contenu du zip à la racine de notre hôte virtuel (/var/www/wordpress dans cet exemple) :
+
+`sudo unzip wordpress-latest-fr_FR.zip -d /var/www
+`
+
+On va renforcer légèrement la sécurité en attribuant des droits un peu restrictifs aux fichiers :
+
+`sudo chown www-data:www-data /var/www/wordpress -R
+`
+`sudo chmod -R -wx,u+rwX,g+rX,o+rX /var/www/wordpress
+`
+
+Pour créer la base de données qu'utilisera WordPress, le plus simple est de se connecter avec le client MySQL :
+
+`sudo mysql
+`
+
+On arrive alors sur la console SQL sur laquelle nous allons entrer ces commandes (en remplaçant mot_de_passe) :
+
+`CREATE DATABASE wordpress;
+ CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'mot_de_passe';
+ GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';
+ FLUSH PRIVILEGES;
+ QUIT;`
+
